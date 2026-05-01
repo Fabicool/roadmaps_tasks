@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Fabicool\ApiRoadmap\Api\BestsellersManagementInterface" type="Fabicool\ApiRoadmap\Model\BestsellersManagement"/>
+	<preference for="Fabicool\ApiRoadmap\Api\NewManagementInterface" type="Fabicool\ApiRoadmap\Model\NewManagement"/>
+	<preference for="Fabicool\ApiRoadmap\Api\TreeManagementInterface" type="Fabicool\ApiRoadmap\Model\TreeManagement"/>
+	<preference for="Fabicool\ApiRoadmap\Api\SubscribeManagementInterface" type="Fabicool\ApiRoadmap\Model\SubscribeManagement"/>
+</config>

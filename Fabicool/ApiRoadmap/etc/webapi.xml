@@ -1,27 +1,29 @@
 <?xml version="1.0" ?>
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
-	<route url="/V1/fabicool-apiroadmap/bestsellers" method="GET">
-		<service class="Fabicool\ApiRoadmap\Api\BestsellersManagementInterface" method="getBestsellers"/>
+	<route url="/V1/custom/products/bestsellers" method="GET">
+		<service class="Fabicool\ApiRoadmap\Api\ProductManagementInterface" method="getBestsellers"/>
 		<resources>
 			<resource ref="anonymous"/>
 		</resources>
 	</route>
-	<route url="/V1/fabicool-apiroadmap/new" method="GET">
-		<service class="Fabicool\ApiRoadmap\Api\NewManagementInterface" method="getNew"/>
+	<route url="/V1/custom/products/new" method="GET">
+		<service class="Fabicool\ApiRoadmap\Api\ProductManagementInterface" method="getNewProducts"/>
 		<resources>
 			<resource ref="anonymous"/>
 		</resources>
 	</route>
-	<route url="/V1/fabicool-apiroadmap/tree" method="GET">
-		<service class="Fabicool\ApiRoadmap\Api\TreeManagementInterface" method="getTree"/>
+	<route url="/V1/custom/categories/tree" method="GET">
+		<service class="Fabicool\ApiRoadmap\Api\CategoryManagementInterface" method="getTree"/>
 		<resources>
 			<resource ref="anonymous"/>
 		</resources>
 	</route>
-	<route url="/V1/fabicool-apiroadmap/subscribe" method="POST">
-		<service class="Fabicool\ApiRoadmap\Api\SubscribeManagementInterface" method="postSubscribe"/>
+	<route url="/V1/custom/newsletter/subscribe" method="POST">
+		<service class="Fabicool\ApiRoadmap\Api\NewsletterManagementInterface" method="subscribe"/>
 		<resources>
-			<resource ref="anonymous"/>
+			<resource ref="self"/>
+            <!--  для пункту про авторизацію Token-based (Magento OAuth) з rest/V1/integration/customer/token -->
+            <!--            -->
 		</resources>
 	</route>
 </routes>

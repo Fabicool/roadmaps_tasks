@@ -1,7 +1,15 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-	<preference for="Fabicool\ApiRoadmap\Api\BestsellersManagementInterface" type="Fabicool\ApiRoadmap\Model\BestsellersManagement"/>
-	<preference for="Fabicool\ApiRoadmap\Api\NewManagementInterface" type="Fabicool\ApiRoadmap\Model\NewManagement"/>
-	<preference for="Fabicool\ApiRoadmap\Api\TreeManagementInterface" type="Fabicool\ApiRoadmap\Model\TreeManagement"/>
-	<preference for="Fabicool\ApiRoadmap\Api\SubscribeManagementInterface" type="Fabicool\ApiRoadmap\Model\SubscribeManagement"/>
+    <preference for="Fabicool\ApiRoadmap\Api\ProductManagementInterface" type="Fabicool\ApiRoadmap\Model\ProductManagement"/>
+    <preference for="Fabicool\ApiRoadmap\Api\Data\ProductInterface" type="Fabicool\ApiRoadmap\Model\Data\Product"/>
+    <preference for="Fabicool\ApiRoadmap\Api\CategoryManagementInterface" type="Fabicool\ApiRoadmap\Model\CategoryManagement"/>
+    <preference for="Fabicool\ApiRoadmap\Api\Data\CategoryNodeInterface" type="Fabicool\ApiRoadmap\Model\Data\CategoryNode"/>
+    <preference for="Fabicool\ApiRoadmap\Api\NewsletterManagementInterface" type="Fabicool\ApiRoadmap\Model\NewsletterManagement"/>
+
+    <type name="Fabicool\ApiRoadmap\Api\ProductManagementInterface">
+        <plugin name="rate_limit_products" type="Fabicool\ApiRoadmap\Plugin\RateLimiterPlugin"/>
+    </type>
+    <type name="Fabicool\ApiRoadmap\Api\CategoryManagementInterface">
+        <plugin name="rate_limit_categories" type="Fabicool\ApiRoadmap\Plugin\RateLimiterPlugin"/>
+    </type>
 </config>

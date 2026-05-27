@@ -50,6 +50,9 @@ class RateLimiterPlugin
     }
 
     /**
+     * Chacking ip rate limits by requests.
+     * Blocking customer if more than 100 requests per hour for each method. Using cache for storing request counts.
+     *
      * @param string $methodName
      * @throws WebapiException
      */

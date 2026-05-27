@@ -18,6 +18,14 @@ class NewsletterManagement implements NewsletterManagementInterface
     ) {
     }
 
+    /**
+     * Create user subscription with custom fields (phone, birthday) via REST API
+     *
+     * @param $email
+     * @param $phone
+     * @param $birthday
+     * @return string
+     */
     public function subscribe($email, $phone, $birthday) {
         try {
             $subscriber = $this->subscriberFactory->create()->loadByCustomerId(

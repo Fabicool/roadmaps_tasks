@@ -18,15 +18,29 @@ class CategoryManagement implements CategoryManagementInterface
     ) {
     }
 
+    /**
+     * Getting categories tree by rest
+     *
+     * @return array
+     */
     public function getTree()
     {
-        $collection = $this->collectionFactory->create()
-            ->addAttributeToSelect(['name', 'is_active'])
-            ->addAttributeToFilter('is_active', 1);
+        try {
+            $collection = $this->collectionFactory->create()
+                ->addAttributeToSelect(['name', 'is_active'])
+                ->addAttributeToFilter('is_active', 1);
 
-        return $this->buildTree($collection, 1); // Починаємо з кореневої категорії (ID 1 або 2)
+            return $this->buildTree($collection, 1); // Починаємо з кореневої категорії (ID 1 або 2)
+        } catch (\Exception $e) {
+            throw new \Magento\Framework\Exception\LocalizedException(__("Something went wrong with the getting tree."));
+        }
     }
 
+    /**
+     * @param $collection
+     * @param $parentId
+     * @return array
+     */
     private function buildTree($collection, $parentId)
     {
         $nodes = [];
